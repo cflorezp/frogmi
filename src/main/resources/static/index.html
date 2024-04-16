@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seismic Data</title>
+</head>
+<body>
+<h1>Seismic Data</h1>
+<button onclick="fetchData()">Fetch Data</button>
+<div id="data"></div>
+
+<script>
+    async function fetchData() {
+        const response = await fetch('http://localhost:8080/api/features');
+        const data = await response.json();
+
+        const container = document.getElementById('data');
+        container.innerHTML = JSON.stringify(data, null, 2);
+    }
+</script>
+</body>
+</html>
